@@ -75,6 +75,7 @@ searcher = ix.searcher()
 
 query = u"first"
 results = searcher.find("content", query)
+print results
 print results[0]['content']
 
 #print '===>',results[0].highlights('content')

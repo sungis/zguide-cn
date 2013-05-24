@@ -1,0 +1,224 @@
+mysql	MySQL
+xml	XML
+.net	C#
+socket	
+vb	VisualBasic
+汇编	汇编
+access	Access
+shell	
+多线程	多线程
+tomcat	Tomcat
+servlet	
+虚拟机	
+asp.net	C#
+delphi	Delphi/Pascal
+嵌入式	
+gcc	C/C++
+ajax	AJAX
+hibernate	Hibernate
+apache	Apache
+css	CSS
+sql server	MSSQLServer
+spring	Spring
+struts	Struct
+项目管理	2-9人小团队管理
+单片机	Arm开发（Arm,单片机,单板机）
+svn	Svn
+python	Python
+awk	
+软件测试	
+ubuntu	Ubuntu
+ios	iOS
+db2	DB2
+weblogic	WebLogic
+vim	
+需求分析	
+ai	Adobe Illustrator
+boost	C++
+负载均衡	
+mfc	MFC
+wap	WAP
+ant	Eclipse(MyEclipse)
+perl	Perl
+vb.net	VisualBasic.net
+lua	Lua
+j2ee	J2SE/J2EE/J2ME
+系统设计	
+cvs	CVS
+数据挖掘	
+图像处理	
+流媒体	
+vc++	C/C++
+架构设计	
+memcached	
+jbuilder	Jbuilder
+sybase	Sybase
+wince	WinCE/WindowsPhone/WindowsMobile
+redhat	RedHat
+人工智能	
+javabean	Java
+配置管理	
+jboss	Jboss
+visual studio	VisualStudio(2003,2005,2008,2010,2012)
+hadoop	Hadoop
+nginx	Nginx
+自动化测试	
+architecture	
+vbscript	VBScript
+activex	ActiveX
+sip	通讯协议编程
+maven	Maven
+cygwin	
+ruby	Ruby
+pascal	Delphi/Pascal
+vmware	VMware
+lucene	Lucene
+敏捷开发	
+photoshop	AdobePhotoshop
+opengl	OpenGL
+emacs	
+chrome	
+websphere	Websphere
+silverlight	Silverlight
+smarty	
+solaris	Solaris
+vba	VBScript
+p2p	P2P
+symbian	Symbian
+cuda	CUDA
+j2se	J2SE/J2EE/J2ME
+erp	
+debian	
+centos	RedHat/CentOS
+vss	SourceSafe
+redis	Redis
+模式识别	
+硬件设计	
+netbeans	
+jbpm	JBPM
+seo	
+sap	SAP
+领域模型	
+postgresql	PostgreSql
+visio	VISIO
+嵌入式linux	Linux
+sharepoint	SharePoint
+windows mobile	WinCE/WindowsPhone/WindowsMobile
+易语言	
+cocos2d	Cocos2D
+firebug	
+xcode	XCode
+aix	AIX
+c＃	C#
+mono	C#
+mongodb	MongoDB
+as3	ActionScript
+c++ builder	C++
+visual c++	C++
+django	Python
+powerpoint	
+corba	CORBA
+powerbuilder	PowerBuilder
+brew	
+crystal report	Crystal Reports
+erlang	Erlang
+orcale	Oracle
+gpu	
+groovy	groovy
+cobol	Cobol
+bugzilla	Bugzilla
+soa	SOA
+andriod	Android
+sco unix	Unix
+thinkphp	PHP
+biztalk	
+node.js	Node.js
+smalltalk	Smalltalk
+rational rose	Rational Rose
+coreldraw	CorelDraw
+meego	Linux
+bada	Linux
+serverlet	Java
+machine learning	
+lotus notes	
+javacript	JavaScript
+navicat	
+coldfusion	ColdFusion
+phonegap	PhoneGap
+box2d	Box2D
+scrum	
+scala	Scala
+ms sqlserver	MSSQLServer
+authorware	
+ruby on rails	
+cakephp	
+nosql	
+powershell	Powershell
+blackberry	BlackBerry
+database design	
+extjs4	
+jython	
+azure	
+ophone	
+illustrator	Illustrator
+flash builder	Flash
+sqllite	SqlLite
+google maps	
+aps.net	C#
+citrix	
+lotus domino	
+game development	
+ms office	
+codeigniter	
+axure	AxureRP
+dreamweave	Dreamweaver
+objective c	ObjectC
+sencha touch	
+ms access	Access
+risc	
+mindmanager	
+hp unix	HP-Unix
+infomix	Infomix
+google app engine	
+excel vba	VBA
+jquery mobile	Jquery
+intellij idea	
+heroku	Rails
+interface builder	
+google analytics	
+icloud	
+ms project	Project
+jqeury	Jquery
+ibm db2	DB2
+power pc	
+ms excel	
+html5开发	Html(Dhtml,Html5)
+eclipce	Eclipse(MyEclipse)
+
+rational purify	
+powerdesigner15	powerdesigner
+reduce程序	Hadoop
+mips汇编	
+powerdesiner	Power Designer 
+flash as3.0	ActionScript
+bi开发	
+after effects	
+rational clearcase	RationalClearCase
+3d图形学	
+java	Java
+ms visio	Visio
+brophp	PHP
+amazon ec2	
+amazon s3	
+phyton	Python
+actionscrip	ActionScript
+arm 2410	ARM
+lotus 123	
+oracle中间件	
+amazon web services	
+3dmax script	3D MAX
+google chrome extension	
+ms powerpoint	
+3dstudio max	3D MAX
+ads仿真	
+llnux	Linux

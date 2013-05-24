@@ -1,73 +1,51 @@
+# -*- coding: UTF-8 -*-
 import zmq  
 
 
-def search(q):
-  SERVER_ENDPOINT = "tcp://192.168.4.215:5560"
+def send_request(header,q):
+  SERVER_ENDPOINT = "tcp://localhost:5555"
   CLIENT_IDENTITY = "AD_Client_pyzmq" 
   c=zmq.Context()
   s=c.socket(zmq.REQ)
-  s.set(zmq.IDENTITY,CLIENT_IDENTITY)
+  #s.set(zmq.IDENTITY,CLIENT_IDENTITY)
   s.connect(SERVER_ENDPOINT)
-  m=['search',q]
+  m=[header,q]
   s.send_multipart(m)
   return s.recv()
 
 
-request='{ "action" : "searchJob" , "q" : { "keyword" : ".net"} , "filter" : { } ,"sort" : 1 , "output" : { "format" : "json", "offset" : 0 , "size" : 10}}'
+#request='{ "action" : "searchJob" , "q" : { "keyword" : ".net"} , "filter" : { } ,"sort" : 1 , "output" : { "format" : "json", "offset" : 0 , "size" : 10}}'
 
-#print search(request)
-
-SERVER_ENDPOINT = "tcp://192.168.4.215:5560" 
-CLIENT_IDENTITY = "AD_Client_pyzmq"
-
-context = zmq.Context(1)
-print "I: Connecting to server..."
-client = context.socket(zmq.REQ)
-client.set(zmq.IDENTITY,CLIENT_IDENTITY)
-client.connect(SERVER_ENDPOINT)
-
-poll = zmq.Poller()
-poll.register(client, zmq.POLLIN)
-m=['search',request]
+#print send_request('search',request)
 
 
-REQUEST_TIMEOUT = 3000
-retries_left=3
+#f = open('./data/jobs.txt')
+#re_jobs=re.compile('{"action":"updateDoc".*{"format":"json","offset":0,"size":10}}')
+#for i in f:
+#    m = re_jobs.search(i)
+#    if m:
+#        request = m.group()
+#        print request
+#        break
+#        print send_request('update',request)
 
-client.send_multipart(m)
-while retries_left:
-  socks = dict(poll.poll(REQUEST_TIMEOUT))
-  if socks.get(client) == zmq.POLLIN:
-    reply = client.recv()
-    if not reply:
-      break
-    else:
-      print reply
-      break
+#request = '{"action":"removeDoc","name":"job","keyId":"67943"}'
+#print send_request('remove',request)
+#
+#
+#request='{"action":"adv","q":{"referurl":"http://blog.csdn.net/zhangchaoyangsun/article/details/8879615","keyword":[""]},"filter":{"city":[""],"province":[""]},"sort":1,"output":{"format":"json","offset":0,"size":6}}'
+#print send_request('search',request)
 
-  else:
-    print "W: No response from server, retrying..."
-    client.setsockopt(zmq.LINGER, 0)
-    client.close()
-    poll.unregister(client)
-    if retries_left == 0:
-      print "E: Server seems to be offline, abandoning"
-      break
-    print "I: Reconnecting and resending (%s)" % request
-    client = context.socket(zmq.REQ)
-    client.set(zmq.IDENTITY,CLIENT_IDENTITY)
-    client.connect(SERVER_ENDPOINT)
-    poll.register(client, zmq.POLLIN)
-    client.send_multipart(m)
-    #print client.recv()
+#import sys
+#f = open('skill.txt')
+#for k in f:
+#    request='{ "action" : "searchJob" , "q" : { "keyword" : "'+k+'"} , "sort" : 1 , "output" : { "format" : "json" , "offset" : 0 , "size" : 10}}'
+#    print k
+#    print send_request('search',request)
+#    ch = sys.stdin.read(1)
 
-#context.term()
+k='python'
 
-
-
-
-#if __name__ == '__main__':
-#  q='{ "action" : "searchJob" , "q" : { "keyword" : ".net"} , "filter" : { } ,\
-#      "sort" : 1 , "output" : { "format" : "json", "offset" : 0 , "size" : 10}}'
-#  print search(q)
-
+request='{ "action" : "searchJob" , "q" : { "keyword" : "'+k+'"} , "sort" : 1 , "output" : { "format" : "json" , "offset" : 0 , "size" : 10}}'
+print k
+print send_request('search',request)

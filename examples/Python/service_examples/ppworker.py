@@ -6,8 +6,8 @@
 
 from random import randint
 import time
-
 import zmq
+from ad_service import ADIndex
 
 HEARTBEAT_LIVENESS = 3
 HEARTBEAT_INTERVAL = 1
@@ -17,6 +17,8 @@ INTERVAL_MAX = 32
 #  Paranoid Pirate Protocol constants
 PPP_READY = "\x01"      # Signals worker is ready
 PPP_HEARTBEAT = "\x02"  # Signals worker heartbeat
+
+ad_idx = ADIndex ("indexdir")
 
 def worker_socket(context, poller):
     """Helper function that returns a new configured socket
@@ -29,6 +31,12 @@ def worker_socket(context, poller):
     worker.send(PPP_READY)
     return worker
 
+def dispatch_hander(worker,frames):
+    print "I: Normal reply"
+    worker.send_multipart(frames)
+    liveness = HEARTBEAT_LIVENESS
+    time.sleep(1)  # Do some heavy work
+
 
 context = zmq.Context(1)
 poller = zmq.Poller()
@@ -39,7 +47,7 @@ interval = INTERVAL_INIT
 heartbeat_at = time.time() + HEARTBEAT_INTERVAL
 
 worker = worker_socket(context, poller)
-cycles = 0
+#cycles = 0
 while True:
     socks = dict(poller.poll(HEARTBEAT_INTERVAL * 1000))
 
@@ -52,24 +60,26 @@ while True:
         if not frames:
             break # Interrupted
 
-        if len(frames) == 3:
-            # Simulate various problems, after a few cycles
-            cycles += 1
-            if cycles > 3 and randint(0, 5) == 0:
-                print "I: Simulating a crash"
-                break
-            if cycles > 3 and randint(0, 5) == 0:
-                print "I: Simulating CPU overload"
-                time.sleep(3)
-            print "I: Normal reply"
-            worker.send_multipart(frames)
+        if len(frames) == 4:
+            ad_idx.dispatch_hander(worker,frames)
             liveness = HEARTBEAT_LIVENESS
-            time.sleep(1)  # Do some heavy work
+            # Simulate various problems, after a few cycles
+            #cycles += 1
+            #if cycles > 3 and randint(0, 5) == 0:
+            #    print "I: Simulating a crash"
+            #    break
+            #if cycles > 3 and randint(0, 5) == 0:
+            #    print "I: Simulating CPU overload"
+            #    time.sleep(3)
+            #print "I: Normal reply"
+            #worker.send_multipart(frames)
+            #liveness = HEARTBEAT_LIVENESS
+            #time.sleep(1)  # Do some heavy work
         elif len(frames) == 1 and frames[0] == PPP_HEARTBEAT:
             print "I: Queue heartbeat"
             liveness = HEARTBEAT_LIVENESS
         else:
-            print "E: Invalid message: %s" % frames
+            print "E: Invalid message: %d %s" % (len(frames),frames)
         interval = INTERVAL_INIT
     else:
         liveness -= 1
